@@ -1,1 +1,1 @@
-# jeu-du-pendu
+# jeu-du-pendu (v1.0)
