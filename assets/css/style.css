@@ -1,7 +1,9 @@
 /* 
-    couleur border interactive: #998152;
-    couleur background interactif: #ead9ce;
-    couleur principale (gris foncé): #31353a;
+    -- COULEURS DE REFERENCE --
+    background des boutons: #ead9ce;
+    texte principal et bordures : #31353a (gris foncé);
+    defaite: rgb(183, 43, 43) (rouge);
+    victoire: rgb(43, 119, 20) (vert);
 */
 @font-face {
     font-family: "libreFranklin";
@@ -13,6 +15,7 @@
     src: url("../fonts/librefranklin-bold.ttf") format("truetype");
     font-weight: bold;
 }
+/* -- RESET -- */
 html, body, div, form, input, fieldset, a, main, img, h1
 {
     margin: 0;
@@ -40,6 +43,7 @@ body
     margin-bottom: 1rem;
     width: 100%;
 }
+/* -- LETTRES DECOUVERTES -- */
 #jeuDuPendu .lettresDecouvertes
 {
     margin-bottom: 1rem;
@@ -50,6 +54,7 @@ body
 {
     color: rgb(183, 43, 43);
 }
+/* -- LETTRES PROPOSEES -- */
 #jeuDuPendu form fieldset
 {
     margin-bottom: 1rem;
@@ -77,14 +82,6 @@ body
     text-transform: uppercase;
     transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -5deg);
 }
-#jeuDuPendu form fieldset > div b.defaite
-{
-    background-color: rgb(183, 43, 43);
-}
-#jeuDuPendu form fieldset > div b.victoire
-{
-    background-color: rgb(43, 119, 20);
-}
 #jeuDuPendu form input[name="lettre"]
 {
     margin: 0.2rem;
@@ -100,6 +97,7 @@ body
 {
     opacity: 0.3;
 }
+/* -- BOUTON NOUVELLE PARTIE -- */
 #jeuDuPendu form input[name="nouvellePartie"]
 {
     border: 2px solid #31353a;
@@ -110,6 +108,7 @@ body
     font-weight: bold;
     background-color: #ead9ce;
 }
+/* -- COMMUN AUX LETTRES DISPONIBLES ET AU BOUTON NOUVELLE PARTIE -- */
 #jeuDuPendu form input[type="submit"]
 {
     transition: color 0.3s, background-color 0.2s;
@@ -120,6 +119,16 @@ body
     color: #f6f7f0;
     background-color: #31353a;
 }
+/* -- STATUT DE FIN DE PARTIE -- */
+#jeuDuPendu form fieldset > div b.defaite
+{
+    background-color: rgb(183, 43, 43);
+}
+#jeuDuPendu form fieldset > div b.victoire
+{
+    background-color: rgb(43, 119, 20);
+}
+/* -- VIES RESTANTES -- */
 #jeuDuPendu .vies-container
 {
     margin-left: auto;
@@ -146,6 +155,7 @@ body
     color: #f6f7f0;
     background-image: url("../images/coeur.png");
 }
+/* -- LIENS -- */
 #jeuDuPendu a
 {
     margin-top: 2rem;
@@ -177,13 +187,9 @@ body
     {
         order: 3;
     }
-    #jeuDuPendu a
-    {
-        order: 4;
-        margin-right: auto;
-    }
     #jeuDuPendu .lettresDecouvertes
     {
+        margin-top: 1rem;
         text-align: center;
     }
     #jeuDuPendu form input[name="lettre"]
@@ -196,5 +202,10 @@ body
         margin-left: auto;
         margin-right: auto;
         display: block;
+    }
+    #jeuDuPendu a
+    {
+        order: 4;
+        margin-right: auto;
     }
 }
