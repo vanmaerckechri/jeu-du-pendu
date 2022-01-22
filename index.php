@@ -127,7 +127,20 @@
         </div>
         <div class="vies-container">
             <img src="assets/images/le-jeu-du-pendu-etape-<?=6 - $_SESSION['vies']?>.png" alt="" width="240" height="240">
-            <div><?=$_SESSION['vies']?></div>
+            <?php
+                if ($_SESSION['vies'] > 0)
+                {
+                ?>
+                    <div class="enVie"><?=$_SESSION['vies']?></div>
+                <?php
+                }
+                else
+                {
+                ?>
+                    <div class="defaite"></div>
+                <?php
+                }
+            ?>
         </div>
         <a href="https://github.com/vanmaerckechri/jeu-du-pendu/archive/refs/heads/main.zip" target="_blank" rel="noopener">télécharger les fichiers</a>
     </main>

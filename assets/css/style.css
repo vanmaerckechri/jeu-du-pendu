@@ -5,6 +5,7 @@
     defaite: rgb(183, 43, 43) (rouge);
     victoire: rgb(43, 119, 20) (vert);
 */
+/* -- POLICE -- */
 @font-face {
     font-family: "libreFranklin";
     src: url("../fonts/librefranklin-regular.ttf") format("truetype");
@@ -14,6 +15,30 @@
     font-family: "libreFranklin";
     src: url("../fonts/librefranklin-bold.ttf") format("truetype");
     font-weight: bold;
+}
+/* -- ANIMATIONS -- */
+@keyframes cardio
+{
+    0% 
+    {
+        transform: scale3d(1, 1, 1);
+    }
+    15% 
+    {
+        transform: scale3d(0.9, 0.9, 1);
+    }
+    30% 
+    {
+        transform: scale3d(1, 1, 1);
+    }
+    45% 
+    {
+        transform: scale3d(0.9, 0.9, 1);
+    }
+    100% 
+    {
+        transform: scale3d(1, 1, 1);
+    }
 }
 /* -- RESET -- */
 html, body, div, form, input, fieldset, a, main, img, h1
@@ -143,7 +168,6 @@ body
 #jeuDuPendu .vies-container > div
 {
     position: absolute;
-    top: 1.1em;
     right: 0;
     display: flex;
     justify-content: center;
@@ -153,7 +177,20 @@ body
     font-size: 1.5rem;
     font-weight: bold;
     color: #f6f7f0;
-    background-image: url("../images/coeur.png");
+}
+#jeuDuPendu .vies-container > div.enVie
+{
+    top: 1.1em;
+    background-image: url("../images/le-jeu-du-pendu-coeur.png");
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: cardio;
+    transition: transform 0.1s;
+}
+#jeuDuPendu .vies-container > div.defaite
+{
+    top: 1.8em;
+    background-image: url("../images/le-jeu-du-pendu-coeur-brise.png");
 }
 /* -- LIENS -- */
 #jeuDuPendu a
@@ -162,7 +199,7 @@ body
     margin-left: auto;
     color: #31353a;
     /* permet de mettre les images en cache dès le premier chargement de la page */
-    background-image: url("../images/le-jeu-du-pendu-etape-1.png"), url("../images/le-jeu-du-pendu-etape-2.png"), url("../images/le-jeu-du-pendu-etape-3.png"), url("../images/le-jeu-du-pendu-etape-4.png"), url("../images/le-jeu-du-pendu-etape-5.png"), url("../images/le-jeu-du-pendu-etape-6.png");
+    background-image: url("../images/le-jeu-du-pendu-etape-1.png"), url("../images/le-jeu-du-pendu-etape-2.png"), url("../images/le-jeu-du-pendu-etape-3.png"), url("../images/le-jeu-du-pendu-etape-4.png"), url("../images/le-jeu-du-pendu-etape-5.png"), url("../images/le-jeu-du-pendu-etape-6.png"), url("../images/le-jeu-du-pendu-coeur-brise.png");
     background-size: 0;
 }
 @media (max-width: 880px)
