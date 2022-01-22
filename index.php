@@ -92,6 +92,13 @@
     <meta name="description" content="Le jeu du pendu réalisé lors du cours d'approche en développement donné par Bruno Martin durant la formation de webdesigner à l'ifosup de Wavre.">
     <meta name="author" content="Christophe Van Maercke">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Le Jeu du Pendu</title>
 </head>
@@ -116,7 +123,7 @@
             </form>
         </div>
         <div class="vies-container">
-            <img src="assets/images/le-jeu-du-pendu-etape-<?=6 - $_SESSION['vies']?>.png" alt="illustration accompagnant les différentes étapes pour le jeu du pendu.">
+            <img src="assets/images/le-jeu-du-pendu-etape-<?=6 - $_SESSION['vies']?>.png" alt="" width="240" height="240">
             <div><?=$_SESSION['vies']?></div>
         </div>
         <a href="https://github.com/vanmaerckechri/jeu-du-pendu/archive/refs/heads/main.zip" target="_blank" rel="noopener">télécharger les fichiers</a>

@@ -1,10 +1,13 @@
-# jeu-du-pendu (v1.1)
+# jeu-du-pendu (v1.11)
 
 ## Mises à jour
 
 * v1.1 (22-01-2022 | 02h50):
     * Refonte de l'interface.
     * Meilleure définition des images.
+* v1.11 (22-01-2022 | 13h20):
+    * Mise en cache de toutes les images dès le premier chargement.
+    * Ajout d'une favicon.
 
 ## Contexte
 

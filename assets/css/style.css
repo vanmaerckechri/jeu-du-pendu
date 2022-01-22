@@ -1,14 +1,3 @@
-*
-{
-    margin: 0;
-    border: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body
-{
-    font-size: 100%;
-}
 /* 
     couleur border interactive: #998152;
     couleur background interactif: #ead9ce;
@@ -23,6 +12,13 @@ body
     font-family: "libreFranklin";
     src: url("../fonts/librefranklin-bold.ttf") format("truetype");
     font-weight: bold;
+}
+html, body, div, form, input, fieldset, a, main, img
+{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 body
 {
@@ -129,7 +125,6 @@ body
     margin-left: auto;
     position: relative;
     max-width: 240px;
-    width: 100%;
 }
 #jeuDuPendu .vies-container img
 {
@@ -156,6 +151,9 @@ body
     margin-top: 2rem;
     margin-left: auto;
     color: #31353a;
+    /* permet de mettre les images en cache dès le premier chargement de la page */
+    background-image: url("../images/le-jeu-du-pendu-etape-1.png"), url("../images/le-jeu-du-pendu-etape-2.png"), url("../images/le-jeu-du-pendu-etape-3.png"), url("../images/le-jeu-du-pendu-etape-4.png"), url("../images/le-jeu-du-pendu-etape-5.png"), url("../images/le-jeu-du-pendu-etape-6.png");
+    background-size: 0;
 }
 @media (max-width: 880px)
 {
