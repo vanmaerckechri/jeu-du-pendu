@@ -10,7 +10,7 @@
         $_SESSION['vies'] = 6;
         $_SESSION['motMystere'] = choisir_motAuHasard();
         $_SESSION['lettresProposées'] = [];
-        $_SESSION['statutPartie'] = null;
+        $_SESSION['statutFinDePartie'] = null;
     }
     function verifier_lettre(string $lettre): void
     {
@@ -50,17 +50,17 @@
             }
         }
     }
-    function actualiser_statutPartie(): void
+    function actualiser_statutFinDePartie(): void
     {
         // Si le nombre de vie a atteint 0:
         if ($_SESSION['vies'] === 0)
         {
-            $_SESSION['statutPartie'] = "<b class=\"defaite\">defaite!</b>";
+            $_SESSION['statutFinDePartie'] = "<b class=\"defaite\">defaite!</b>";
         }
         // Si toutes les lettres ont été trouvées:
         elseif (strpos($_SESSION['lettresDecouvertes'], "_") === false)
         {
-            $_SESSION['statutPartie'] = "<b class=\"victoire\">victoire!</b>";
+            $_SESSION['statutFinDePartie'] = "<b class=\"victoire\">victoire!</b>";
         }
     }
     function gerer_jeuDuPendu(): void
@@ -72,14 +72,14 @@
             lancer_nouvellePartie();
         }
         // Le joueur propose une lettre et la partie est tjs en cours:
-        elseif ($_SESSION['statutPartie'] == null)
+        elseif ($_SESSION['statutFinDePartie'] == null)
         {
             verifier_lettre($_POST['lettre']);
         }
         // Constituer le mot avec les lettres validées:
         constituer_mot();
         // Actualiser la situation de la partie (partie est terminée?):
-        actualiser_statutPartie();
+        actualiser_statutFinDePartie();
     }
     gerer_jeuDuPendu();
 ?>
@@ -110,14 +110,15 @@
             <form method="POST">
                 <fieldset>
                     <?php
+                    /* Parcourir les lettres de l'alphabet: Si la lettre a déjà été proposée ou si la partie est terminée, désactiver cette dernière. */
                     foreach(range("A", "Z") as $lettre)
                     {
                     ?>
-                        <input type="submit" name="lettre" value="<?=$lettre?>" <?=array_search($lettre, $_SESSION['lettresProposées']) !== false || $_SESSION['statutPartie'] != null ? "disabled" : "" ?>>
+                        <input type="submit" name="lettre" value="<?=$lettre?>" <?=array_search($lettre, $_SESSION['lettresProposées']) !== false || $_SESSION['statutFinDePartie'] != null ? "disabled" : "" ?>>
                     <?php 
                     }
                     ?>
-                    <div><?=$_SESSION['statutPartie'] ?? ""?></div>
+                    <div><?=$_SESSION['statutFinDePartie'] ?? ""?></div>
                 </fieldset>
                 <input type="submit" name="nouvellePartie"  value="nouvelle partie">
             </form>
