@@ -10,205 +10,193 @@ body
     font-size: 100%;
 }
 /* 
-    couleur police interactive: #64350d;
+    couleur border interactive: #998152;
+    couleur background interactif: #ead9ce;
     couleur principale (gris foncé): #31353a;
 */
 @font-face {
-    font-family: montserrat;
-    src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
+    font-family: "libreFranklin";
+    src: url("../fonts/librefranklin-regular.ttf") format("truetype");
     font-weight: normal;
 }
 @font-face {
-    font-family: "montserrat";
-    src: url("../fonts/Montserrat-Bold.ttf") format("truetype");
+    font-family: "libreFranklin";
+    src: url("../fonts/librefranklin-bold.ttf") format("truetype");
     font-weight: bold;
-}
-@font-face {
-    font-family: "tinos";
-    src: url("../fonts/Tinos-Regular.ttf") format("truetype");
-    font-weight: normal;
 }
 body
 {
+    font-size: 100%;
+    font-family: libreFranklin;
+    color: #31353a;
     background-color: #f6f7f0;
 }
 #jeuDuPendu
 {
-    padding: 2em;
-    font-family: montserrat;
-    color: #31353a;
-    background-color: #f6f7f0;
-}
-#jeuDuPendu > div
-{
     margin: 0 auto;
-    position: relative;
-    max-width: 580px;
+    padding: 2rem;
+    max-width: 900px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 #jeuDuPendu h1
 {
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-    font-weight: normal;
+    margin-bottom: 1rem;
+    width: 100%;
 }
-#jeuDuPendu dl
-{
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-}
-#jeuDuPendu dl > div
+#jeuDuPendu .lettresDecouvertes
 {
     margin-bottom: 1rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: baseline;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
-#jeuDuPendu dt
+#jeuDuPendu .lettresDecouvertes b.defaite
 {
-    min-width: 150px;
-    max-width: 150px;
-    font-family: tinos;
+    color: rgb(183, 43, 43);
 }
-#jeuDuPendu dt::first-letter
+#jeuDuPendu form fieldset
 {
-    font-size: 1.5em;
-}
-#jeuDuPendu dd
-{
-    margin-left: 0.5rem;
-}
-#jeuDuPendu img
-{
-    position: absolute;
-    right: 0;
-    top: 2rem;
-    max-width: 130px;
-    height: auto;
-}
-#jeuDuPendu fieldset
-{
-    border: solid 2px #31353a;
+    margin-bottom: 1rem;
+    border: 2px solid #31353a;
     border-radius: 0.5rem;
-    padding: 0.5rem 0;
+    padding: 0.5rem;
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    font-family: tinos;
+    max-width: 565px;
 }
-#jeuDuPendu fieldset legend
+#jeuDuPendu form fieldset > div b
 {
-    margin-left: 1rem;
-    padding: 0 0.5rem;
-    max-width: 10rem; /* fix un étrange bug sous firefox qui ajoute une sorte de padding-right lorsque l'on propose une lettre !?! */
-    font-size: 1.1rem;
-}
-#jeuDuPendu fieldset legend::first-letter
-{
-    font-size: 1.5em;
-}
-#jeuDuPendu input[type="submit"]
-{
-    color: #64350d;
-    background-color: #64350d10;
-}
-#jeuDuPendu input[type="submit"]
-{
-    border: 1px solid #64350d;
+    padding: 0.5rem;
+    border: 2px solid #31353a;
     border-radius: 0.5rem;
-    font-size: 1.2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 1.5rem;
+    color: #f6f7f0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -5deg);
 }
-#jeuDuPendu input[type="submit"]:hover:not(:disabled)
+#jeuDuPendu form fieldset > div b.defaite
+{
+    background-color: rgb(183, 43, 43);
+}
+#jeuDuPendu form fieldset > div b.victoire
+{
+    background-color: rgb(43, 119, 20);
+}
+#jeuDuPendu form input[name="lettre"]
+{
+    margin: 0.2rem;
+    border: 2px solid #31353a;
+    border-radius: 0.5rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #ead9ce;
+}
+#jeuDuPendu form input[name="lettre"]:disabled
+{
+    opacity: 0.3;
+}
+#jeuDuPendu form input[name="nouvellePartie"]
+{
+    border: 2px solid #31353a;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #ead9ce;
+}
+#jeuDuPendu form input[type="submit"]
+{
+    transition: color 0.3s, background-color 0.2s;
+}
+#jeuDuPendu form input[type="submit"]:hover:not([disabled])
 {
     cursor: pointer;
-    color: white;
-    background-color: #64350d;
+    color: #f6f7f0;
+    background-color: #31353a;
 }
-#jeuDuPendu input[name="lettre"]
+#jeuDuPendu .vies-container
 {
-    margin: 0.4rem;
-    width: 42px;
-    height: 42px;
-    display: inline-flex;
+    margin-left: auto;
+    position: relative;
+    max-width: 240px;
+    width: 100%;
+}
+#jeuDuPendu .vies-container img
+{
+    width: 100%;
+    height: auto;
+}
+#jeuDuPendu .vies-container > div
+{
+    position: absolute;
+    top: 1.1em;
+    right: 0;
+    display: flex;
     justify-content: center;
     align-items: center;
+    width: 75px;
+    height: 75px;
+    font-size: 1.5rem;
     font-weight: bold;
-}
-#jeuDuPendu input[name="lettre"]:disabled
-{
-    opacity: 0.2;
-}
-#jeuDuPendu .row
-{
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-#jeuDuPendu input[name="nouvellePartie"]
-{
-    margin-top: 1rem;
-    padding: 0.5em;
-    font-size: 1.2rem;
+    color: #f6f7f0;
+    background-image: url("../images/coeur.png");
 }
 #jeuDuPendu a
 {
-    font-size: 1em;
-    color: #64350d;
+    margin-top: 2rem;
+    margin-left: auto;
+    color: #31353a;
 }
-.defaite
-{
-    color: rgb(143, 32, 32)
-}
-.victoire
-{
-    color: rgb(45, 143, 32)
-}
-@media (max-width: 450px)
+@media (max-width: 880px)
 {
     #jeuDuPendu
     {
         padding: 0.5rem;
+        flex-direction: column;
+        align-items: center;
     }
     #jeuDuPendu h1
     {
         order: 1;
-        margin-bottom: 0.5rem;
         text-align: center;
-        font-size: 1.3rem;
     }
-    #jeuDuPendu img
+    #jeuDuPendu .vies-container
     {
         order: 2;
-        margin: 0 auto 0;
-        position: static;
-        display: block;
+        margin-left: 0;
     }
-    #jeuDuPendu dl
+    #jeuDuPendu .lettres-container
     {
         order: 3;
-        margin-bottom: 0.5rem;
-    }
-    #jeuDuPendu dl > div
-    {
-        margin-bottom: 0;
-    }
-    #jeuDuPendu dt
-    {
-        font-size: 1rem;
-    }
-    #jeuDuPendu form
-    {
-        order: 4;
-    }
-    #jeuDuPendu .row
-    {
-        flex-direction: column;
-        align-items: center;
     }
     #jeuDuPendu a
     {
-        margin-top: 2rem;
+        order: 4;
+        margin-right: auto;
+    }
+    #jeuDuPendu .lettresDecouvertes
+    {
+        text-align: center;
+    }
+    #jeuDuPendu form input[name="lettre"]
+    {
+        width: 45px;
+        height: 45px;
+    }
+    #jeuDuPendu form input[name="nouvellePartie"]
+    {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
     }
 }

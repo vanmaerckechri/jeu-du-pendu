@@ -10,7 +10,7 @@
         $_SESSION['vies'] = 6;
         $_SESSION['motMystere'] = choisir_motAuHasard();
         $_SESSION['lettresProposées'] = [];
-        $_SESSION['statutPartie'] = "en cours...";
+        $_SESSION['statutPartie'] = null;
     }
     function verifier_lettre(string $lettre): void
     {
@@ -72,7 +72,7 @@
             lancer_nouvellePartie();
         }
         // Le joueur propose une lettre et la partie est tjs en cours:
-        elseif ($_SESSION['statutPartie'] == "en cours...")
+        elseif ($_SESSION['statutPartie'] == null)
         {
             verifier_lettre($_POST['lettre']);
         }
@@ -97,41 +97,29 @@
 </head>
 <body>
     <main id="jeuDuPendu">
-        <div>
-            <h1>Le Jeu du Pendu</h1>
-            <dl>
-                <div>
-                    <dt>Statut de la partie:</dt>
-                    <dd><?=$_SESSION['statutPartie']?></dd>
-                </div>
-                <div>
-                    <dt>Vies restantes:</dt>
-                    <dd><?=$_SESSION['vies']?></dd>
-                </div>
-                <div>
-                    <dt>Lettres découvertes:</dt>
-                    <dd><?=$_SESSION['lettresDecouvertes']?></dd>
-                </div>
-            </dl>
-            <img src="assets/images/le-jeu-du-pendu-etape-<?=6 - $_SESSION['vies']?>.png" alt="illustration accompagnant les différentes étapes pour le jeu du pendu.">
+        <h1>Jeu du Pendu</h1>
+        <div class="lettres-container">
+            <div class="lettresDecouvertes"><?=$_SESSION['lettresDecouvertes']?></div>
             <form method="POST">
                 <fieldset>
-                    <legend>Lettres disponibles:</legend>
                     <?php
                     foreach(range("A", "Z") as $lettre)
                     {
                     ?>
-                        <input type="submit" name="lettre" value="<?=$lettre?>" <?=array_search($lettre, $_SESSION['lettresProposées']) !== false || $_SESSION['statutPartie'] != "en cours..." ? "disabled" : "" ?>>
+                        <input type="submit" name="lettre" value="<?=$lettre?>" <?=array_search($lettre, $_SESSION['lettresProposées']) !== false || $_SESSION['statutPartie'] != null ? "disabled" : "" ?>>
                     <?php 
                     }
                     ?>
+                    <div><?=$_SESSION['statutPartie'] ?? ""?></div>
                 </fieldset>
-                <div class="row">
-                    <input type="submit" name="nouvellePartie"  value="nouvelle partie">
-                    <a href="https://github.com/vanmaerckechri/jeu-du-pendu/archive/refs/heads/main.zip" target="_blank" rel="noopener">télécharger les fichiers</a>
-                </div>
+                <input type="submit" name="nouvellePartie"  value="nouvelle partie">
             </form>
         </div>
+        <div class="vies-container">
+            <img src="assets/images/le-jeu-du-pendu-etape-<?=6 - $_SESSION['vies']?>.png" alt="illustration accompagnant les différentes étapes pour le jeu du pendu.">
+            <div><?=$_SESSION['vies']?></div>
+        </div>
+        <a href="https://github.com/vanmaerckechri/jeu-du-pendu/archive/refs/heads/main.zip" target="_blank" rel="noopener">télécharger les fichiers</a>
     </main>
 </body>
 </html>
