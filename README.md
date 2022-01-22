@@ -13,4 +13,4 @@
 
 ## Contexte
 
-Réalisé lors du cours d'approche en développement donné par Bruno Martin durant la formation de webdesigner à l'ifosup de Wavre.
+Réalisé lors du cours d'approche en développement donné par [Bruno Martin](https://www.brunomartin.be/ecole/) durant la formation de webdesigner à l'[IFOSUP de Wavre](https://ifosup.wavre.be/).
